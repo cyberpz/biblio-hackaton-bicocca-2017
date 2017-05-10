@@ -28,3 +28,6 @@ li > .about{
 	from{opacity: 0;}
 	to{opacity: 1;}
 }
+button:focus{
+	border: none !important;
+}
