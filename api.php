@@ -4,7 +4,8 @@ if(isset($_GET['add']) and $_GET['p']!='')
 	player_start($_GET['id']);
 if(isset($_GET['get'] and $_GET['id']!='')
 	get_user($_GET['id']);
-
+if(isset($_GET['get']) and isset($_GET['q']))
+	get_questions();
 
 function player_start($player){
   # main function: if queue empty => add to queue else => match 
