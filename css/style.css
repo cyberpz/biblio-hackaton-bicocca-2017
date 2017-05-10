@@ -6,12 +6,17 @@ input{
 	outline:none
 }
 header{
-	padding-top: 80px; 
-	padding-bottom:35px;
+	padding-top: 100px;
+	padding-bottom:50px;
 }
 .img-center{
 	margin: 0 auto;
 }
-.navbar-padding-left{
-	padding-left: 10px;
+
+ul > .about{
+	background-color:transparent;
+	border: solid 1px #000;
+}
+li > .about{
+
 }
