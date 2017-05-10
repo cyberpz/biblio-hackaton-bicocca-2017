@@ -11,10 +11,12 @@ function populate(id){
 			doc.style.display = "none";
 		}
 		if(id=="singleplayer" || id=="multiplayer"){
-			document.getElementById("navigator").style.display = "none";
+			$(document.getElementById("navigator")).fadeOut(100);
 		}else{
-			document.getElementById("navigator").style.display = "inline";
+			$(document.getElementById("navigator")).fadeIn(100);
 		}
+		$(document.getElementById(id)).fadeIn(100);
+		//document.getElementById(id).style.display = "inline";
 	}
-	document.getElementById(id).style.display = "inline";
+	
 }
