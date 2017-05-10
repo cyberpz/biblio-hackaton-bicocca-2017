@@ -16,7 +16,7 @@ use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '254678888333913','64cf6730a79162236ae41cf0c4c3118c' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://milano.duckdns.org/' );
+    $helper = new FacebookRedirectLoginHelper('http://milano.duckdns.org/hackaton/' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
