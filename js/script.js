@@ -10,13 +10,11 @@ function populate(id){
 		if(doc != null){
 			doc.style.display = "none";
 		}
-		if(id=="singleplayer" || id=="multiplayer"){
-			$(document.getElementById("navigator")).fadeOut(100);
-		}else{
-			$(document.getElementById("navigator")).fadeIn(100);
-		}
-		$(document.getElementById(id)).fadeIn(100);
-		//document.getElementById(id).style.display = "inline";
 	}
-	
+	if(id=="singleplayer" || id=="multiplayer"){
+		$("#navigator").fadeOut(100);
+	}else{
+		$("#navigator").fadeIn(100);
+	}
+	$("#"+id).fadeIn(100);
 }
