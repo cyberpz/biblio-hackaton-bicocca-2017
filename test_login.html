@@ -1,0 +1,12 @@
+
+function setCook(name, val) { // init cookie
+  var n = name;
+  var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000)); // 30 giorni
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = n + val + ";" + expires + ";";
+}
+function checkCook() {
+  if(document.cookie > -1)
+    return true;
+}
