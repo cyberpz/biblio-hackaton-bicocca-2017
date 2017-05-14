@@ -15,21 +15,21 @@ function get_questions($token){
 
         // prima parte - verifica che la partita esista
 
-        $q = sprintf("SELECT COUNT(*) FROM `games` WHERE `id` = '%s'", $token);
+        $q = sprintf("SELECT COUNT(*) FROM `games` WHERE `token` = '%s'", $token);
         if ($result = $mysqli->query($q)) {
             /* fetch object array */
             $row = $result->fetch_row();
             if ($row[0] == 0)
-               die("Game not found");
+               die(/*"Game not found"*/);
         } else
             printf("Errormessage: %s\n", $mysqli->error);
 
         // seconda parte - scarica le domande
         $json = array();
-        $q = 'SELECT * FROM `questions` ORDER BY RAND() LIMIT 5';
+        $q = 'SELECT `id` FROM `questions` ORDER BY RAND() LIMIT 5';
         if ($result = $mysqli->query($q)) {
             /* fetch object array */
-            $i = 0;
+
             while ($row = $result->fetch_assoc()) {
                 //printf ("%s (%s)\n", $row[0], $row[1]);
 
@@ -37,11 +37,12 @@ function get_questions($token){
                 $acorrect = $a[0];
                 shuffle($a);
                 $correct = array_search($acorrect, $a);
-                $json[$i] = array(
-                           'q' => $row['q'],
-                           'a' => $a,
-                           'correct' => $correct);
-                $i++;
+                array_push($json, array(
+                               'q' => $row['q'],
+                               'a' => $a,
+                               'correct' => $correct));
+
+
             }
             /* free result set */
             $result->close();

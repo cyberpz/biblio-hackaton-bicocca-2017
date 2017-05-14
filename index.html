@@ -11,7 +11,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
-  <script src="js/standalone.js"></script>
+	<script src="js/game_dinamics.js"></script>
+	<script src="js/standalone.js"></script>
 
 </head>
 
@@ -46,7 +47,7 @@
 					</div>
 				</div>
 	</nav>
-	<!-- INDEX.HTML -->
+	<!-- INDEX -->
 	<div id="index">
 		<header>
 				<img class="img-responsive img-center" src="img/logo.png" alt="">
@@ -57,11 +58,12 @@
 					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_gioca.png" onclick="populate('gioca')"></input>
 					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_classifica.png" onclick="populate('classifica')"></input>
 					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_statistiche.png" onclick="populate('statistiche')"></input>
+					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_risultati.png" onclick="display_risultati()"></input>
 				</div>
 			</div>
 		</section>
 	</div>
-	<!-- GIOCA.HTML -->
+	<!-- GIOCA -->
 	<div id="gioca" style="display:none">
 		<header>
 				<img class="img-responsive img-center" src="img/logo.png" alt="">
@@ -71,18 +73,61 @@
 			<div class="container">
 				<div class="row">
 					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" style="margin-bottom: 10px" type="image" src="img/button_singleplayer.png" onclick="populate('singleplayer')"></input>
-					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_multiplayer.png" onclick="populate('multiplayer')"></input>
+					<input class="col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" type="image" src="img/button_multiplayer.png" onclick="display_multiplayer_find_game();"></input>
 				</div>
 			</div>
 		</section>
 	</div>
-	<!-- CLASSIFICA.HTML -->
+	<!-- CLASSIFICA -->
 	<div id="classifica" style="display:none">
+		<header>
+			<img class="img-responsive img-center" src="img/logo.png" alt="">
+		</header>
+		<section>
+			<div class="container">
+			  <div class="row top-minibuffer ">
+				<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/divisor.png">
+			  </div>
+					<div class="row top-buffer">
+						<img  class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/position.png">
+			</div>
+			<div class="row top-buffer">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/sfondo_ranking.png">
+			</div>
+			<div class="row top-minibuffer ">
+				<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/divisor.png">
+			</div>
+		</section>
 	</div>
-	<!-- STATISTICHE.HTML -->
+	<!-- STATISTICHE -->
 	<div id="statistiche" style="display:none">
+		<header>
+			<img class="img-responsive img-center" src="img/logo.png" alt="">
+		</header>
+		<section>
+			<div class="container">
+				<div class="row top-minibuffer ">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/divisor.png">
+				</div>
+				<div class="row top-buffer">
+					<img  class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/partite_giocate.png">
+				</div>
+				<div class="row top-buffer">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/sfondo_ranking.png">
+				</div>
+				<div class="row top-buffer">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/divisor.png">
+				</div>
+				<div class="row top-minibuffer">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/victorylose.png">
+				</div>
+				<div class="row top-buffer">
+					<img class="img-responsive col-xs-6 col-xs-offset-3 col-lg-2 col-lg-offset-5" src="img/scores.png">
+				</div>
+			</div>
+		</section>	
 	</div>
-	<!-- ABOUT.HTML -->
+	<!-- ABOUT -->
 	<div id="about" style="display:none">
 		<header>
 			<img class="img-responsive img-center" src="img/logo.png" alt="">
@@ -94,11 +139,10 @@
 				  <li class="list-group-item about">Carlo Cepollaro</li>
 				  <li class="list-group-item about">Peppuz</li>
 				  <li class="list-group-item about">Marco Gamba</li>
-				  <li class="list-group-item about">Edoardo Massazza</li>
+				  <!--<li class="list-group-item about">Edoardo Massazza</li>-->
 				</ul>
 			</div>
 		</div>
-
 		<script>
 			var ul = document.querySelector('ul.list-group');
 			for (var i = ul.children.length; i >= 0; i--) {
@@ -106,10 +150,100 @@
 			}
 		</script>
 	</div>
-	<!-- SINGLEPLAYER.HTML -->
+	<!-- SINGLEPLAYER -->
 	<div id="singleplayer" style="display:none">
 	</div>
-	<!-- MULTIPLAYER.HTML -->
-	<div id="multiplayer" style="display:none">
+	<!-- MULTIPLAYER_FIND_GAME -->
+	<div id="multiplayer_find_game" style="display:none">
+		<header>
+			<img class="img-responsive img-center" src="img/logo.png" alt="">
+		</header>
+		<div class="container">
+			<div class="row top-buffer">
+				<img class="col-xs-offset-5 col-lg-offset-5" style="width:7%" src="img/icon.png" >
+				<img  style='width:3%' src="img/vs.png">
+				<img  style='width:7%' src="img/icon.png">
+			</div>
+			<div class="row top-buffer">
+				<h1 class="text-responsive text-center">Carico partita</h1>
+				<div class="col-xs-offset-3"></div>
+				<div id="progresso">
+					<div id="barra"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MULTIPLAYER_GAME-->
+	<div id="multiplayer_game" style="display:none">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4" style="position:relative">
+					<img src="img/bg_game.png" class="img-responsive img-center" alt="">
+					<h4 class="question_text text-center" id="question">question</h4>
+					<h1 id="timer" class="text-center">15</h1>
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-5 col-lg-6">
+					<p class="text-center" id="answer_0">answer_0</p>
+					<input type="image" src="img/button_answer.png" class="img-responsive img-center" onclick="evaluate_answer(0)"></input>
+				</div>
+				<div class="col-xs-2"></div>
+				<div class="col-xs-5 col-lg-6">
+					<p class="text-center" id="answer_2">answer_2</p>
+					<input type="image" src="img/button_answer.png" class="img-responsive img-center" onclick="evaluate_answer(2);"></input>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px">
+				<div class="col-xs-5 col-lg-6">
+					<p class="text-center" id="answer_1">answer_1</p>
+					<input type="image" src="img/button_answer.png" class="img-responsive img-center" onclick="evaluate_answer(1);"></input>
+				</div>
+				<div class="col-xs-2"></div>
+				<div class="col-xs-5 col-lg-6">
+					<p class="text-center" id="answer_3">answer_3</p>
+					<input type="image" src="img/button_answer.png" class="img-responsive img-center" onclick="evaluate_answer(3);"></input>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- RISULTATI -->
+	<div id="risultati" style="display:none">
+	<!--<style>
+	.risultato {
+		background: url(..) no-repeat;
+		display: block;
+		width: px;
+		height: px;
+	}
+	.risultato > .win {
+		float: left;
+	}
+	.risultato > .loss {
+		float: right;
+	}	
+	</style>
+	<script>
+	var elem = $("#risultato");
+	for( ... ; ... ;) {
+		
+	}
+	</script>
+		<p class="risultato">
+		<span class="win"></span>
+		<span class="loss"></span>
+		</p>-->
+	
+		<div class="container">
+			<header>
+				<img class="img-responsive img-center" src="img/logo.png" alt="">
+			</header>
+			<div class="row text-center">
+			<h3>Risposte corrette: <span id="c"></span></h3>
+			<h3>Risposte errate: <span id="s"></span></h3>
+			</div>
+		</div>
 	</div>
 </body>

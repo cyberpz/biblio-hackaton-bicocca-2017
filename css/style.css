@@ -20,14 +20,29 @@ ul > .about{
 li > .about{
 
 }
-@keyframes fade_out {
-	from{opacity: 1;}
-	to{opacity: 0;}
-}
-@keyframes fade_in {
-	from{opacity: 0;}
-	to{opacity: 1;}
-}
 button:focus{
 	border: none !important;
+}
+.top-buffer { 
+	margin-top:20px; 
+} 
+.top-minibuffer{
+	margin-top:10px;
+}
+.question_text{
+	color:white;
+	position:absolute; 
+	top:20%;
+	padding: 0 10%;
+}
+#progresso {
+width: 20%;
+margin: 0 auto;
+background-color: #C0C0C0;
+}
+
+#barra {
+width: 1%;
+height: 30px;
+background-color: #0041C2;
 }
